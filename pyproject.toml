@@ -1,0 +1,38 @@
+[project]
+name = "seacat"
+version = "0.1.0"
+description = "Client for the SeaCat API: typed decisions with calibrated probabilities."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = []  # standard library only
+authors = [{ name = "Ship Systems LLC", email = "chris@shipsystems.ai" }]
+keywords = ["seacat", "classification", "decisions", "probabilities", "api", "client"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://seacat.dev"
+Documentation = "https://seacat.dev/docs"
+Source = "https://github.com/Chris-Crimi/seacat-python"
+Issues = "https://github.com/Chris-Crimi/seacat-python/issues"
+
+[build-system]
+requires = ["setuptools>=77"]  # 77 reads `license` as an SPDX expression
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["seacat"]
+
+[tool.setuptools.package-data]
+seacat = ["py.typed"]  # PEP 561: the annotations are inline
+
+[tool.pytest.ini_options]
+testpaths = ["."]

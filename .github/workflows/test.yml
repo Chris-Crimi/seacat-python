@@ -1,0 +1,19 @@
+# Runs in the public mirror (github.com/Chris-Crimi/seacat-python). Inert in the monorepo, where the workflow
+# at its root tests the clients alongside the server.
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.13"]  # the oldest supported, and a current one
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install pytest
+      - run: pytest -q

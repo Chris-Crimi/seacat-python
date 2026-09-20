@@ -1,0 +1,25 @@
+# Publishes to PyPI on a version tag, e.g. `git tag v0.1.0 && git push --tags`.
+#
+# Uses PyPI trusted publishing, so there's no token to leak: configure a publisher on PyPI for this repository
+# and this workflow file first (pypi.org -> your project -> Publishing).
+name: publish
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # for trusted publishing
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - run: pip install pytest build
+      - run: pytest -q
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
