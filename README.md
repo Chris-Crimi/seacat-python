@@ -66,7 +66,8 @@ d["stage"].confident(0.8) # False
 d["fit"].mean             # 1.75 — scale questions only: the expected level, where 0 is the lowest
 d["wants_pricing"].is_yes # True
 d.model, d.usage.input_tokens, d.usage.cost_usd
-d.timing                  # Server-Timing as {name: ms}, for debugging: where the server spent the request
+d.timing                  # Server-Timing as {name: ms}: where the server spent the request. Empty for an
+                          # answer collected from the queue, which the API doesn't time.
 d.raw                     # the response exactly as the API sent it
 
 for name, answer in d.items():
