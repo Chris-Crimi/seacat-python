@@ -151,5 +151,5 @@ queued-result path. It needs nothing but pytest.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). The client is MIT so you can install, read and modify it freely. The SeaCat
+MIT — see [LICENSE](https://github.com/Chris-Crimi/seacat-python/blob/main/LICENSE). The client is MIT so you can install, read and modify it freely. The SeaCat
 service it calls is a separate, proprietary product, governed by the [Terms](https://seacat.dev/terms).
